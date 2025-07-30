@@ -10,7 +10,7 @@ class SocialFeedScreen extends StatelessWidget {
     return Column(
       children: [
         // Header with post input
-        SizedBox(height: 40),
+        SizedBox(height: 50),
         _buildHeader(),
         // Feed content
         Expanded(
@@ -29,6 +29,7 @@ class SocialFeedScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 15),
                 _buildPostsList(),
               ],
             ),

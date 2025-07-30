@@ -33,6 +33,7 @@ class _LandingScreenViewState extends ConsumerState<LandingScreenView> {
     final selectedIndex = ref.watch(selectedTabProvider);
 
     return Scaffold(
+      backgroundColor: Colors.white.withAlpha(245),
       body: SafeArea(
         bottom: false,
         child: Stack(
@@ -54,7 +55,7 @@ class _LandingScreenViewState extends ConsumerState<LandingScreenView> {
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 3),
+                padding: const EdgeInsets.symmetric(vertical: 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
@@ -89,7 +90,7 @@ class _LandingScreenViewState extends ConsumerState<LandingScreenView> {
                               AnimatedContainer(
                                 duration: const Duration(milliseconds: 300),
                                 curve: Curves.easeInOut,
-                                width: tabs[index] == tabs[0] ? 50 : 30,
+                                width: tabs[index] == tabs[0] ? 60 : 40,
                                 height: 5,
                                 decoration: BoxDecoration(
                                   color: Colors.black,

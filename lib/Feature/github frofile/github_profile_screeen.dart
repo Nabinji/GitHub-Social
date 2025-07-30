@@ -90,13 +90,15 @@ class _GithubProfileScreeenState extends State<GithubProfileScreeen> {
 
   Widget _buildContent() {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.only(right: 15, left: 15, top: 55, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // User Info Card
           if (userData != null) ...[
             Card(
+              color: Colors.white,
+              elevation: 0.1,
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Column(
@@ -157,6 +159,8 @@ class _GithubProfileScreeenState extends State<GithubProfileScreeen> {
           SizedBox(height: 8),
           if (repositories.isEmpty)
             Card(
+              color: Colors.white,
+              elevation: 0.2,
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Text('No repositories found'),
@@ -167,6 +171,8 @@ class _GithubProfileScreeenState extends State<GithubProfileScreeen> {
                 .take(5)
                 .map(
                   (repo) => Card(
+                    color: Colors.white,
+                    elevation: 0.2,
                     margin: EdgeInsets.only(bottom: 8),
                     child: ListTile(
                       leading: Icon(
@@ -200,6 +206,8 @@ class _GithubProfileScreeenState extends State<GithubProfileScreeen> {
           SizedBox(height: 8),
           if (activities.isEmpty)
             Card(
+              color: Colors.white,
+              elevation: 0.2,
               child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Text('No recent activity found'),
@@ -210,6 +218,8 @@ class _GithubProfileScreeenState extends State<GithubProfileScreeen> {
                 .take(5)
                 .map(
                   (activity) => Card(
+                    color: Colors.white,
+                    elevation: 0.2,
                     margin: EdgeInsets.only(bottom: 8),
                     child: ListTile(
                       leading: CircleAvatar(
