@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:github_social/service.dart';
 
-class SimpleHomeScreen extends StatefulWidget {
+class GithubProfileScreeen extends StatefulWidget {
   final String accessToken;
 
-  const SimpleHomeScreen({super.key, required this.accessToken});
+  const GithubProfileScreeen({super.key, required this.accessToken});
 
   @override
-  State<SimpleHomeScreen> createState() => _SimpleHomeScreenState();
+  State<GithubProfileScreeen> createState() => _GithubProfileScreeenState();
 }
 
-class _SimpleHomeScreenState extends State<SimpleHomeScreen> {
+class _GithubProfileScreeenState extends State<GithubProfileScreeen> {
   late GitHubService gitHubService;
 
   // Data variables
@@ -67,30 +67,25 @@ class _SimpleHomeScreenState extends State<SimpleHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('GitHub Dashboard'),
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-        actions: [IconButton(icon: Icon(Icons.refresh), onPressed: loadData)],
-      ),
-      body: isLoading
-          ? Center(child: CircularProgressIndicator())
-          : errorMessage.isNotEmpty
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.error, size: 64, color: Colors.red),
-                  SizedBox(height: 16),
-                  Text(errorMessage, textAlign: TextAlign.center),
-                  SizedBox(height: 16),
-                  ElevatedButton(onPressed: loadData, child: Text('Retry')),
-                ],
-              ),
-            )
-          : _buildContent(),
-    );
+    return isLoading
+        ? Center(child: CircularProgressIndicator())
+        : errorMessage.isNotEmpty
+        ? Center(
+            child: Column(
+              //   actions: [
+              //   IconButton(icon: Icon(Icons.refresh), onPressed: loadData),
+              // // ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.error, size: 64, color: Colors.red),
+                SizedBox(height: 16),
+                Text(errorMessage, textAlign: TextAlign.center),
+                SizedBox(height: 16),
+                ElevatedButton(onPressed: loadData, child: Text('Retry')),
+              ],
+            ),
+          )
+        : _buildContent();
   }
 
   Widget _buildContent() {

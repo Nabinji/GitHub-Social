@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:github_social/home_screen.dart';
+import 'package:github_social/Feature/landing/landing_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GithubLogin extends StatelessWidget {
   const GithubLogin({super.key});
@@ -17,7 +18,8 @@ class GithubLogin extends StatelessWidget {
               // Get the GitHub access token
               final githubCredential = credential.credential;
               final accessToken = githubCredential?.accessToken;
-
+              final prefs = await SharedPreferences.getInstance();
+              await prefs.setString('githubAccessToken', accessToken!);
               print('Access Token: $accessToken'); // Debug print
 
               if (context.mounted && accessToken != null) {
@@ -25,7 +27,7 @@ class GithubLogin extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        SimpleHomeScreen(accessToken: accessToken),
+                        LandingScreenView(accessToken: accessToken),
                   ),
                 );
               }
