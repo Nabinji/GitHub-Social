@@ -14,15 +14,14 @@ class GithubLogin extends StatelessWidget {
           onPressed: () async {
             try {
               UserCredential credential = await signInWithGithub();
-
               // Get the GitHub access token
               final githubCredential = credential.credential;
               final accessToken = githubCredential?.accessToken;
               final prefs = await SharedPreferences.getInstance();
               await prefs.setString('githubAccessToken', accessToken!);
-              print('Access Token: $accessToken'); // Debug print
+              // print('Access Token: $accessToken'); // Debug print
 
-              if (context.mounted && accessToken != null) {
+              if (context.mounted) {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -32,7 +31,7 @@ class GithubLogin extends StatelessWidget {
                 );
               }
             } catch (e) {
-              print('GitHub login error: $e');
+              // print('GitHub login error: $e');
               // Show error dialog
               if (context.mounted) {
                 showDialog(

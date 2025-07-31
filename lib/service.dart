@@ -51,7 +51,6 @@ class GitHubService {
       return []; // Return empty list on error
     }
   }
-
   // Get user's activity timeline
   Future<List<dynamic>> getUserActivity() async {
     try {
@@ -76,6 +75,7 @@ class GitHubService {
     }
   }
 
+
   // Get user's starred repositories
   Future<List<dynamic>> getStarredRepositories() async {
     try {
@@ -98,105 +98,105 @@ class GitHubService {
   }
 
   // Get user's followers
-  Future<List<dynamic>> getFollowers() async {
-    try {
-      final response = await http.get(
-        Uri.parse('$baseUrl/user/followers?per_page=50'),
-        headers: headers,
-      );
+  // Future<List<dynamic>> getFollowers() async {
+  //   try {
+  //     final response = await http.get(
+  //       Uri.parse('$baseUrl/user/followers?per_page=50'),
+  //       headers: headers,
+  //     );
 
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        throw Exception('Failed to fetch followers: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('Error fetching followers: $e');
-      return []; // Return empty list on error
-    }
-  }
+  //     if (response.statusCode == 200) {
+  //       return json.decode(response.body);
+  //     } else {
+  //       throw Exception('Failed to fetch followers: ${response.statusCode}');
+  //     }
+  //   } catch (e) {
+  //     print('Error fetching followers: $e');
+  //     return []; // Return empty list on error
+  //   }
+  // }
 
   // Get who user is following
-  Future<List<dynamic>> getFollowing() async {
-    try {
-      final response = await http.get(
-        Uri.parse('$baseUrl/user/following?per_page=50'),
-        headers: headers,
-      );
+  // Future<List<dynamic>> getFollowing() async {
+  //   try {
+  //     final response = await http.get(
+  //       Uri.parse('$baseUrl/user/following?per_page=50'),
+  //       headers: headers,
+  //     );
 
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        throw Exception('Failed to fetch following: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('Error fetching following: $e');
-      return []; // Return empty list on error
-    }
-  }
+  //     if (response.statusCode == 200) {
+  //       return json.decode(response.body);
+  //     } else {
+  //       throw Exception('Failed to fetch following: ${response.statusCode}');
+  //     }
+  //   } catch (e) {
+  //     print('Error fetching following: $e');
+  //     return []; // Return empty list on error
+  //   }
+  // }
 
   // Get notifications
-  Future<List<dynamic>> getNotifications() async {
-    try {
-      final response = await http.get(
-        Uri.parse('$baseUrl/notifications?per_page=30'),
-        headers: headers,
-      );
+  // Future<List<dynamic>> getNotifications() async {
+  //   try {
+  //     final response = await http.get(
+  //       Uri.parse('$baseUrl/notifications?per_page=30'),
+  //       headers: headers,
+  //     );
 
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        throw Exception(
-          'Failed to fetch notifications: ${response.statusCode}',
-        );
-      }
-    } catch (e) {
-      print('Error fetching notifications: $e');
-      return []; // Return empty list on error
-    }
-  }
+  //     if (response.statusCode == 200) {
+  //       return json.decode(response.body);
+  //     } else {
+  //       throw Exception(
+  //         'Failed to fetch notifications: ${response.statusCode}',
+  //       );
+  //     }
+  //   } catch (e) {
+  //     print('Error fetching notifications: $e');
+  //     return []; // Return empty list on error
+  //   }
+  // }
 
   // Get user's organizations
-  Future<List<dynamic>> getUserOrganizations() async {
-    try {
-      final response = await http.get(
-        Uri.parse('$baseUrl/user/orgs'),
-        headers: headers,
-      );
+  // Future<List<dynamic>> getUserOrganizations() async {
+  //   try {
+  //     final response = await http.get(
+  //       Uri.parse('$baseUrl/user/orgs'),
+  //       headers: headers,
+  //     );
 
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        throw Exception(
-          'Failed to fetch organizations: ${response.statusCode}',
-        );
-      }
-    } catch (e) {
-      print('Error fetching organizations: $e');
-      return []; // Return empty list on error
-    }
-  }
+  //     if (response.statusCode == 200) {
+  //       return json.decode(response.body);
+  //     } else {
+  //       throw Exception(
+  //         'Failed to fetch organizations: ${response.statusCode}',
+  //       );
+  //     }
+  //   } catch (e) {
+  //     print('Error fetching organizations: $e');
+  //     return []; // Return empty list on error
+  //   }
+  // }
 
   // Get organization events
-  Future<List<dynamic>> getOrganizationEvents(String orgName) async {
-    try {
-      final response = await http.get(
-        Uri.parse('$baseUrl/orgs/$orgName/events?per_page=30'),
-        headers: headers,
-      );
+  // Future<List<dynamic>> getOrganizationEvents(String orgName) async {
+  //   try {
+  //     final response = await http.get(
+  //       Uri.parse('$baseUrl/orgs/$orgName/events?per_page=30'),
+  //       headers: headers,
+  //     );
 
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        throw Exception(
-          'Failed to fetch organization events: ${response.statusCode}',
-        );
-      }
-    } catch (e) {
-      print('Error fetching organization events: $e');
-      return []; // Return empty list on error
-    }
-  }
+  //     if (response.statusCode == 200) {
+  //       return json.decode(response.body);
+  //     } else {
+  //       throw Exception(
+  //         'Failed to fetch organization events: ${response.statusCode}',
+  //       );
+  //     }
+  //   } catch (e) {
+  //     print('Error fetching organization events: $e');
+  //     return []; // Return empty list on error
+  //   }
+  // }
 
   // Get trending repositories (using search API)
   Future<List<dynamic>> getTrendingRepositories() async {
@@ -207,7 +207,7 @@ class GitHubService {
 
       final response = await http.get(
         Uri.parse(
-          '$baseUrl/search/repositories?q=created:>$dateStr&sort=stars&order=desc&per_page=30',
+          '$baseUrl/search/repositories?q=created:>$dateStr&sort=stars&order=desc&per_page=40',
         ),
         headers: headers,
       );
@@ -225,6 +225,7 @@ class GitHubService {
       return []; // Return empty list on error
     }
   }
+  
 
   // Get recent commits across user's repositories
   Future<List<dynamic>> getRecentCommits() async {

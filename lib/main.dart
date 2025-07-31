@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_social/Feature/feed/feed.dart';
-import 'package:github_social/Feature/github%20frofile/github_profile_screeen.dart';
 import 'package:github_social/Feature/landing/landing_screen.dart';
 import 'package:github_social/firebase_options.dart';
 import 'package:github_social/github_login.dart';
